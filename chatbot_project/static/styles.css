@@ -1,0 +1,299 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-image: url("images/daysky.jpg");
+     transition: background 1.5s ease-in-out;
+     background-size: cover;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat-container {
+    width: 400px;
+    height: 600px;
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chat-box {
+    display: flex;
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-area {
+    display: flex;
+    border-top: 2px solid #ccc;
+}
+
+#user-input {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    font-size: 16px;
+    outline: none;
+}
+
+#user-input::placeholder {
+    vertical-align: top;
+    color: #aaa;
+    font-size: 14px;
+
+}
+
+
+
+#send-btn {
+    background-color: #667eea;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-left: 8px;
+    font-family: 'Segoe UI', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#send-btn:hover {
+    background-color: #5a67d8;
+}
+
+.message {
+    padding: 10px 15px;
+    border-radius: 20px;
+    max-width: 80%;
+    word-wrap: break-word;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.user {
+    align-self: flex-end;
+    background-color: #e2e8f0;
+}
+
+.bot {
+    align-self: flex-start;
+    background-color: #edf2f7;
+    color: #333;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.chat-header {
+    border-bottom: 1px solid #ddd;
+    background-color: #f9fafb;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 20px;
+}
+
+.chat-header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* makes the image circular */
+    object-fit: cover;
+}
+
+.chat-header h1 {
+    font-size: 20px;
+    margin: 0;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Splash screen */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeOut 1s ease-out forwards;
+    animation-delay: 2s;
+}
+
+.splash-screen img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    animation: pop 0.6s ease;
+}
+
+.bot-name {
+    color: white;
+    font-size: 28px;
+    margin-top: 15px;
+    font-weight: 600;
+    animation: fadeInText 1s ease 0.3s forwards;
+    opacity: 0;
+}
+
+/* Splash screen animations */
+@keyframes pop {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeInText {
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+}
+
+#micButton {
+    background: #ffffff;
+    border: none;
+    padding: 10px;
+    font-size: 19px;
+    border-radius: 50%;
+    color: #333;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    margin-left: 6px;
+}
+
+#micButton:hover {
+    background-color: #f0f0f0;
+    border-radius: 50%;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    padding-right: 30px;
+}
+
+.header-right button {
+    background-color: transparent;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.header-right button:hover {
+    background-color: #f0f0f0;
+}
+
+
+body.twilight-mode {
+    background-color: rgba(255, 255, 255, 0.4);
+    color: #f3e8ff;
+}
+
+.chat-box, .chat-container, #user-input,#micButton {
+    transition: background 0.5s, color 0.5s;
+}
+
+body.dark-mode .chat-box,
+body.dark-mode .chat-container,
+body.dark-mode #user-input,
+body.dark-mode #micButton {
+    background-color: #2a2a2a;
+    backdrop-filter: blur(3px);
+    color: #fff;
+}
+
+body.twilight-mode .chat-box,
+body.twilight-mode #user-input,
+body.twilight-mode .input-area
+body.twilight-mode .chat-container {
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(19px);
+    color: #222;
+}
+
+body.twilight-mode .chat-header {
+    background-image: url("images/anime-sky.jpg");
+    background-size: cover;
+    transition: background-image 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
+
+body.dark-mode {
+    background-image: url("images/anime-sky.jpg");
+     transition: background 1.5s ease-in-out;
+     background-size: cover;
+}
+
+body.twilight-mode {
+    background-image: url("images/twilight.jpg");
+     transition: background 1.5s ease-in-out;
+     background-size: cover;
+}
+
+body.dark-mode .chat-header {
+    background-image: url("images/stars.jpg");
+    background-size: cover;
+    transition: background 0.9s;
+}
+
+body.dark-mode h1 {
+    color: #bfcfe7 ;
+}
+
+body.twilight-mode h1 {
+    color: #d8b4fe ;
+}
+
+body.dark-mode .fallingstar {
+    position: fixed;
+    top: 20px;
+    right: -80px;
+    left: -100px;
+    width: 3px;
+    height: 80px;
+    background: linear-gradient(45deg, white, rgba(255, 255, 255, 0));
+    box-shadow: 0 0 8px white;
+    opacity: 0;
+    transform: rotate(45deg);
+    pointer-events: none;
+    z-index: 99999;
+}
+
+.fallingstar.animate {
+    animation: meteorFall 1.4s ease-out forwards;
+}
+
+@keyframes meteorFall {
+    0% {
+        top: 20px;
+        left: -80px;
+        opacity: 1;
+        transform: rotate(45deg) scale(1);
+    }
+    60% {
+        opacity: 1;
+        transform: rotate(45deg) scale(1);
+    }
+    100% {
+        top: 100vh;
+        left: 100vw;
+        opacity: 0;
+        transform: rotate(45deg) scale(0.8);
+    }
+}
